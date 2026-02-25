@@ -1,0 +1,501 @@
+.application-window {
+  color: #1d1d1f;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+}
+
+.application-window h2 {
+  margin: 0 0 24px 0;
+  font-size: 28px;
+  font-weight: 700;
+  color: #1d1d1f;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding-bottom: 12px;
+  letter-spacing: -0.02em;
+}
+
+.application-window h3 {
+  margin: 20px 0 12px 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #1d1d1f;
+  letter-spacing: -0.01em;
+}
+
+.app-content {
+  line-height: 1.6;
+}
+
+.app-content p {
+  margin: 10px 0;
+  line-height: 1.6;
+}
+
+.app-content ul {
+  margin: 10px 0;
+  padding-left: 20px;
+}
+
+.app-content li {
+  margin: 8px 0;
+  line-height: 1.5;
+}
+
+.profile-header {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.profile-header h3 {
+  margin: 0 0 8px 0;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.profile-title {
+  color: #667eea;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 4px 0;
+}
+
+.profile-location {
+  color: #86868b;
+  font-size: 14px;
+  margin: 4px 0;
+}
+
+.profile-section {
+  margin-bottom: 24px;
+}
+
+.profile-section h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #667eea;
+  margin: 0 0 12px 0;
+}
+
+.experience-card {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  border-radius: 12px;
+  border: 0.5px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.experience-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.experience-header h3 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.company {
+  color: #667eea;
+  font-size: 15px;
+  font-weight: 600;
+  margin: 4px 0;
+}
+
+.duration {
+  color: #86868b;
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.experience-content ul {
+  margin: 0;
+  padding-left: 24px;
+}
+
+.experience-content li {
+  margin: 12px 0;
+  line-height: 1.6;
+}
+
+.contact-link {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.contact-link:hover {
+  color: #764ba2;
+  text-decoration: underline;
+}
+
+/* Projects */
+.project-card {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  border: 0.5px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.project-card h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.tech-stack {
+  color: #86868b;
+  font-size: 12px;
+  font-weight: 500;
+  margin: 4px 0 12px 0;
+  letter-spacing: 0.01em;
+}
+
+/* Skills */
+.skill-category {
+  margin-bottom: 28px;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.skill-tag {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+  transition: all 0.2s ease;
+}
+
+.skill-tag:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+/* Contact */
+.contact-info {
+  margin-bottom: 32px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 16px;
+  margin: 10px 0;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  font-size: 14px;
+  border: 0.5px solid rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease;
+}
+
+.contact-item:hover {
+  transform: translateX(4px);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.contact-icon {
+  font-size: 28px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 14px 16px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+  font-size: 14px;
+  background: rgba(255, 255, 255, 0.8);
+  transition: all 0.2s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  background: white;
+}
+
+.contact-form button {
+  padding: 14px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  letter-spacing: -0.01em;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.contact-form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.contact-form button:active {
+  transform: translateY(0);
+}
+
+.contact-note {
+  font-size: 13px;
+  color: #86868b;
+  line-height: 1.5;
+  text-align: center;
+  margin-top: 20px;
+}
+
+a.contact-link {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+a.contact-link:hover {
+  color: #764ba2;
+  text-decoration: underline;
+}
+
+.profile-header {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.profile-header h3 {
+  margin: 0 0 8px 0;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.profile-title {
+  color: #667eea;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 4px 0;
+}
+
+.profile-location {
+  color: #86868b;
+  font-size: 14px;
+  margin: 4px 0;
+}
+
+.profile-section {
+  margin-bottom: 24px;
+}
+
+.profile-section h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #667eea;
+  margin: 0 0 12px 0;
+  letter-spacing: -0.01em;
+}
+
+.experience-card {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  border-radius: 12px;
+  border: 0.5px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  margin-bottom: 16px;
+}
+
+.experience-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.experience-header h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.company {
+  color: #667eea;
+  font-size: 15px;
+  font-weight: 600;
+  margin: 4px 0;
+}
+
+.duration {
+  color: #86868b;
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.experience-content ul {
+  margin: 0;
+  padding-left: 24px;
+}
+
+.experience-content li {
+  margin: 12px 0;
+  line-height: 1.6;
+}
+
+/* Browser Window Styles */
+.browser-window {
+  padding: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.browser-window .app-content {
+  display: none;
+}
+
+.browser-toolbar {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(242, 242, 247, 0.95));
+  padding: 10px 12px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);
+}
+
+.browser-nav-buttons {
+  display: flex;
+  gap: 6px;
+}
+
+.browser-nav-btn {
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: #1d1d1f;
+  transition: all 0.2s ease;
+}
+
+.browser-nav-btn:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.browser-nav-btn:active {
+  transform: scale(0.95);
+}
+
+.browser-address-bar {
+  flex: 1;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 0.5px solid rgba(0, 0, 0, 0.1);
+}
+
+.browser-lock {
+  font-size: 12px;
+  color: #86868b;
+}
+
+.browser-url-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 13px;
+  color: #1d1d1f;
+  outline: none;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.browser-url-input::placeholder {
+  color: #86868b;
+}
+
+.browser-go-btn {
+  padding: 4px 12px;
+  background: rgba(102, 126, 234, 0.1);
+  border: none;
+  border-radius: 6px;
+  color: #667eea;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.browser-go-btn:hover {
+  background: rgba(102, 126, 234, 0.2);
+}
+
+.browser-content {
+  flex: 1;
+  background: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.browser-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+.browser-note {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
