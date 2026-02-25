@@ -134,9 +134,13 @@ export default function Desktop({ onExplore }) {
     }));
   }, [getHighestZIndex]);
 
+  const handleShutdown = useCallback(() => {
+    setWindows({});
+  }, []);
+
   return (
     <div className="desktop">
-      <MenuBar />
+      <MenuBar onShutdown={handleShutdown} />
       
       <div className="desktop-shortcuts">
         {shortcuts.map((shortcut) => (
