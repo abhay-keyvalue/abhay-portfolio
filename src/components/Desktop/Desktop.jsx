@@ -1,4 +1,5 @@
 import { useState, useCallback, useEffect } from 'react';
+import { User, Briefcase, Zap, Mail, Globe, Music, Rocket } from 'lucide-react';
 import MenuBar from './MenuBar';
 import DesktopShortcut from './DesktopShortcut';
 import Taskbar from './Taskbar';
@@ -8,53 +9,66 @@ import ProjectsWindow from './applications/ProjectsWindow';
 import SkillsWindow from './applications/SkillsWindow';
 import ContactWindow from './applications/ContactWindow';
 import BrowserWindow from './applications/BrowserWindow';
+import MusicPlayerWindow from './applications/MusicPlayerWindow';
 import './Desktop.css';
 
 const APPLICATIONS = {
   profile: {
     key: 'profile',
     name: 'About Me',
-    icon: '👤',
+    icon: User,
     component: ProfileWindow,
     width: 60,
   },
   projects: {
     key: 'projects',
     name: 'My Projects',
-    icon: '💼',
+    icon: Briefcase,
     component: ProjectsWindow,
     width: 55,
   },
   skills: {
     key: 'skills',
     name: 'Skills',
-    icon: '⚡',
+    icon: Zap,
     component: SkillsWindow,
     width: 50,
   },
   contact: {
     key: 'contact',
     name: 'Contact',
-    icon: '📧',
+    icon: Mail,
     component: ContactWindow,
     width: 50,
   },
   safari: {
     key: 'safari',
     name: 'Safari',
-    icon: '🧭',
+    icon: Globe,
     component: BrowserWindow,
     width: 70,
+  },
+  music: {
+    key: 'music',
+    name: 'Music',
+    icon: Music,
+    component: MusicPlayerWindow,
+    width: 45,
   },
 };
 
 export default function Desktop({ onExplore }) {
   const [windows, setWindows] = useState({});
   const [shortcuts] = useState(
-    Object.keys(APPLICATIONS).map(key => ({
-      ...APPLICATIONS[key],
-      onOpen: () => addWindow(key),
-    }))
+    Object.keys(APPLICATIONS).map(key => {
+      const app = APPLICATIONS[key];
+      return {
+        key: app.key,
+        name: app.name,
+        icon: app.icon,
+        onOpen: () => addWindow(key),
+      };
+    })
   );
 
   useEffect(() => {
@@ -82,7 +96,7 @@ export default function Desktop({ onExplore }) {
         zIndex: getHighestZIndex() + 1,
         minimized: false,
         name: APPLICATIONS[key].name,
-        icon: APPLICATIONS[key].icon,
+        appKey: key,
       },
     }));
   }, [getHighestZIndex]);
@@ -135,7 +149,7 @@ export default function Desktop({ onExplore }) {
         ))}
         
         <DesktopShortcut
-          icon="🚀"
+          icon={Rocket}
           name="Explore 3D"
           onOpen={onExplore}
           highlight
@@ -146,12 +160,13 @@ export default function Desktop({ onExplore }) {
         const window = windows[key];
         const app = APPLICATIONS[key];
         const AppComponent = app.component;
+        const IconComponent = app.icon;
 
         return (
           <WindowFrame
             key={key}
             title={window.name}
-            icon={window.icon}
+            icon={IconComponent}
             zIndex={window.zIndex}
             minimized={window.minimized}
             width={app.width}

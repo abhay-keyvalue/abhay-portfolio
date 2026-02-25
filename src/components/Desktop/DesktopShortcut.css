@@ -1,58 +1,167 @@
 .desktop-shortcut {
-  width: 70px;
-  padding: 8px;
+  width: 80px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   cursor: pointer;
-  border-radius: 8px;
-  transition: all 0.2s ease;
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.desktop-shortcut::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .desktop-shortcut:hover {
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
-  transform: scale(1.05);
+  transform: scale(1.08);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.desktop-shortcut:hover::before {
+  opacity: 1;
+}
+
+.desktop-shortcut:active {
+  transform: scale(1.02);
+  transition-duration: 0.1s;
 }
 
 .desktop-shortcut.selected {
-  background: rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
 
 .desktop-shortcut.highlight {
-  animation: macPulse 2s infinite;
+  animation: macPulse 2.5s ease-in-out infinite;
 }
 
 .shortcut-icon {
-  font-size: 56px;
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
-  transition: transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  color: white;
+  filter: 
+    drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2))
+    drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15));
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center;
+  position: relative;
+}
+
+.shortcut-icon svg {
+  width: 48px;
+  height: 48px;
+  stroke-width: 1.5;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.shortcut-icon::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  border-radius: 18px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.shortcut-icon::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 16px;
 }
 
 .desktop-shortcut:hover .shortcut-icon {
-  transform: translateY(-2px);
+  transform: translateY(-4px);
+}
+
+.desktop-shortcut:hover .shortcut-icon::before {
+  opacity: 1;
+}
+
+.desktop-shortcut:hover .shortcut-icon::after {
+  opacity: 1;
+}
+
+.desktop-shortcut:hover .shortcut-icon svg {
+  transform: scale(1.1);
+}
+
+.desktop-shortcut:active .shortcut-icon {
+  transform: translateY(-2px) scale(0.98);
 }
 
 .shortcut-name {
   color: white;
-  font-size: 11px;
-  font-weight: 500;
+  font-size: 12px;
+  font-weight: 600;
   text-align: center;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  text-shadow: 
+    0 1px 2px rgba(0, 0, 0, 0.4),
+    0 2px 8px rgba(0, 0, 0, 0.3);
   word-break: break-word;
   line-height: 1.3;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
+  transition: all 0.2s ease;
+}
+
+.desktop-shortcut:hover .shortcut-name {
+  text-shadow: 
+    0 1px 3px rgba(0, 0, 0, 0.5),
+    0 2px 12px rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.25);
+  transform: translateY(-2px);
 }
 
 @keyframes macPulse {
   0%, 100% {
     transform: scale(1);
-    box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
+  25% {
+    transform: scale(1.02);
   }
   50% {
-    transform: scale(1.08);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+    transform: scale(1.1);
+    box-shadow: 
+      0 0 30px 5px rgba(255, 255, 255, 0.5),
+      0 0 60px 10px rgba(255, 255, 255, 0.2);
+  }
+  75% {
+    transform: scale(1.02);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .desktop-shortcut,
+  .shortcut-icon,
+  .shortcut-name {
+    transition: none;
+  }
+  
+  .desktop-shortcut.highlight {
+    animation: none;
   }
 }

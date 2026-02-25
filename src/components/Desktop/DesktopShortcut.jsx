@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './DesktopShortcut.css';
 
-export default function DesktopShortcut({ icon, name, onOpen, highlight }) {
+export default function DesktopShortcut({ icon: IconComponent, name, onOpen, highlight }) {
   const [clicks, setClicks] = useState(0);
 
   const handleClick = () => {
@@ -21,7 +21,11 @@ export default function DesktopShortcut({ icon, name, onOpen, highlight }) {
       className={`desktop-shortcut ${clicks === 1 ? 'selected' : ''} ${highlight ? 'highlight' : ''}`}
       onClick={handleClick}
     >
-      <div className="shortcut-icon">{icon}</div>
+      <div className="shortcut-icon">
+        {IconComponent  && (
+          <IconComponent size={48} strokeWidth={1.5} />
+        )}
+      </div>
       <div className="shortcut-name">{name}</div>
     </div>
   );

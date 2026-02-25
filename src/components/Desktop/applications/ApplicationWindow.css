@@ -499,3 +499,240 @@ a.contact-link:hover {
   right: 0;
   z-index: 10;
 }
+
+/* Music Player Styles */
+.music-player-window {
+  padding: 0;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+}
+
+.music-player-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.track-info-header {
+  text-align: center;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 12px;
+}
+
+.track-info-header .track-title {
+  margin: 0 0 4px 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #1d1d1f;
+  letter-spacing: -0.02em;
+}
+
+.track-info-header .track-artist {
+  margin: 0;
+  font-size: 13px;
+  color: #86868b;
+  font-weight: 500;
+}
+
+.soundcloud-player {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.soundcloud-player iframe {
+  display: block;
+}
+
+.player-nav-controls {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.nav-control-btn {
+  flex: 1;
+  padding: 12px 16px;
+  background: rgba(102, 126, 234, 0.1);
+  border: none;
+  border-radius: 10px;
+  color: #667eea;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.nav-control-btn:hover:not(:disabled) {
+  background: rgba(102, 126, 234, 0.2);
+  transform: translateY(-2px);
+}
+
+.nav-control-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.nav-control-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.music-note {
+  text-align: center;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+}
+
+.music-note p {
+  margin: 4px 0;
+  font-size: 12px;
+  color: #86868b;
+}
+
+.music-note p:first-child {
+  font-weight: 600;
+  color: #667eea;
+}
+
+.playlist-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.playlist-toggle {
+  background: rgba(102, 126, 234, 0.1);
+  border: none;
+  padding: 4px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #667eea;
+  font-size: 12px;
+  transition: all 0.2s ease;
+}
+
+.playlist-toggle:hover {
+  background: rgba(102, 126, 234, 0.2);
+}
+
+.playlist-section {
+  margin-top: 8px;
+}
+
+.playlist-section h4 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1d1d1f;
+  letter-spacing: -0.01em;
+}
+
+.playlist-tracks {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.playlist-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 0.5px solid rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+}
+
+.playlist-item:hover {
+  background: rgba(255, 255, 255, 0.9);
+  transform: translateX(4px);
+}
+
+.playlist-item.active {
+  background: rgba(102, 126, 234, 0.15);
+  border-color: rgba(102, 126, 234, 0.3);
+}
+
+.playlist-icon {
+  font-size: 24px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(102, 126, 234, 0.1);
+  border-radius: 8px;
+}
+
+.playlist-item.active .playlist-icon {
+  background: rgba(102, 126, 234, 0.2);
+}
+
+.playlist-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.playlist-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1d1d1f;
+}
+
+.playlist-artist {
+  font-size: 11px;
+  color: #86868b;
+}
+
+.playing-indicator {
+  font-size: 16px;
+  color: #667eea;
+  animation: bounce 1s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.music-tip {
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  border: 0.5px solid rgba(102, 126, 234, 0.2);
+}
+
+.music-tip details summary {
+  list-style: none;
+  padding: 4px;
+}
+
+.music-tip details summary::-webkit-details-marker {
+  display: none;
+}
+
+.music-tip details[open] summary {
+  margin-bottom: 4px;
+}
+
+.music-tip p {
+  margin: 0;
+  color: #86868b;
+  padding-left: 8px;
+}

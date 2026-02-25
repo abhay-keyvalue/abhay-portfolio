@@ -15,8 +15,8 @@ export default function MenuBar() {
   return (
     <div className="menubar">
       <div className="menubar-left">
-        <div className="menu-item apple-menu">
-          <span className="apple-icon"></span>
+        <div className="menu-item" style={{ fontSize: '16px', fontWeight: 'bold' }}>
+          A
         </div>
         <div className="menu-item menu-title">Portfolio</div>
         <div className="menu-item">File</div>

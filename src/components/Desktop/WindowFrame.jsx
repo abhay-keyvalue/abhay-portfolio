@@ -3,7 +3,7 @@ import './WindowFrame.css';
 
 export default function WindowFrame({
   title,
-  icon,
+  icon: IconComponent,
   children,
   zIndex,
   minimized,
@@ -78,23 +78,27 @@ export default function WindowFrame({
   };
 
   const isBrowser = title === 'Safari';
+  const isMusic = title === 'Music';
   
   return (
     <div
       ref={windowRef}
-      className={`window-frame ${minimized ? 'minimized' : ''} ${isDragging ? 'dragging' : ''} ${isBrowser ? 'browser-frame' : ''}`}
+      className={`window-frame ${minimized ? 'minimized' : ''} ${isDragging ? 'dragging' : ''} ${isBrowser ? 'browser-frame' : ''} ${isMusic ? 'music-frame' : ''}`}
       style={{
         left: position.x,
         top: position.y,
         zIndex,
         width: width ? `${width}%` : undefined,
-        height: isBrowser ? '70vh' : undefined,
+        height: isBrowser ? '70vh' : isMusic ? 'auto' : undefined,
+        maxHeight: isMusic ? '85vh' : undefined,
       }}
       onMouseDown={onInteract}
     >
       <div className="window-titlebar" onMouseDown={handleMouseDown}>
         <div className="window-title">
-          <span className="window-icon">{icon}</span>
+          <span className="window-icon">
+            {IconComponent && <IconComponent size={16} strokeWidth={2} />}
+          </span>
           {title}
         </div>
         <div className="window-controls">

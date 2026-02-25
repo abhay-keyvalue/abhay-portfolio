@@ -69,7 +69,16 @@
 }
 
 .window-icon {
-  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1d1d1f;
+}
+
+.window-icon svg {
+  width: 16px;
+  height: 16px;
+  stroke-width: 2;
 }
 
 .window-controls {
@@ -197,4 +206,13 @@
 
 .window-frame.browser-frame {
   min-height: 500px;
+}
+
+.window-frame.music-frame {
+  min-height: 400px;
+}
+
+.window-frame.music-frame .window-content {
+  max-height: none;
+  overflow-y: auto;
 }
