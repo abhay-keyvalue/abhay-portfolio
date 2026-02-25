@@ -23,4 +23,8 @@ dist-ssr
 *.sln
 *.sw?
 
-exapmle projects/*
+# Example projects (reference only, not deployed)
+exapmle projects/
+
+# GitHub Pages deployment
+.gh-pages
