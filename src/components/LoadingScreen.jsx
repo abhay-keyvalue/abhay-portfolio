@@ -67,14 +67,10 @@ export default function LoadingScreen({ onComplete }) {
     window.addEventListener('keydown', handleKeyPress);
     window.addEventListener('click', handleClick);
 
-    const autoTimeout = setTimeout(() => {
-      handleProceed();
-    }, 1000);
 
     return () => {
       window.removeEventListener('keydown', handleKeyPress);
       window.removeEventListener('click', handleClick);
-      clearTimeout(autoTimeout);
     };
   }, [canProceed, handleProceed]);
 
