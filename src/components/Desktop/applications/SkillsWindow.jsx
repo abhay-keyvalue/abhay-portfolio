@@ -1,74 +1,49 @@
+import { Zap, Code2, Smartphone, Database, GitBranch, Palette, Users } from 'lucide-react';
+import { skillsData } from '../../../constants/portfolioData';
 import './ApplicationWindow.css';
 
-export default function SkillsWindow() {
-  const skills = {
-    'Frontend Technologies': [
-      'JavaScript (ES6+)',
-      'TypeScript',
-      'React Native',
-      'React.js',
-      'HTML5',
-      'CSS3',
-      'Flutter',
-      'Next.js'
-    ],
-    'Mobile Development': [
-      'Android Studio',
-      'Xcode',
-      'iOS Development',
-      'SDK Development',
-      'Play Store Release',
-      'App Store Release'
-    ],
-    'State Management': [
-      'Redux Toolkit',
-      'Redux.js'
-    ],
-    'Version Control & CI/CD': [
-      'Git',
-      'GitHub',
-      'Bitbucket',
-      'GitHub Actions',
-      'CI/CD Pipelines'
-    ],
-    'Backend & Integrations': [
-      'Firebase',
-      'Firestore',
-      'Firebase Auth',
-      'Cloud Messaging',
-      'Crashlytics',
-      'Sendbird',
-      'REST APIs',
-      'GraphQL',
-      'AWS'
-    ],
-    'UI/UX & Performance': [
-      'Performance Enhancement',
-      'Responsive Design',
-      'Progressive Web Apps'
-    ],
-    'Collaboration & PM': [
-      'Agile Methodologies',
-      'Jira',
-      'Trello',
-      'Cross-functional Teams'
-    ]
+const getCategoryIcon = (category) => {
+  const iconMap = {
+    'Frontend Technologies': Code2,
+    'Mobile Development': Smartphone,
+    'State Management': Database,
+    'Version Control & CI/CD': GitBranch,
+    'Backend & Integrations': Database,
+    'UI/UX & Performance': Palette,
+    'Collaboration & PM': Users
   };
+  return iconMap[category] || Code2;
+};
 
+export default function SkillsWindow() {
   return (
     <div className="application-window">
-      <h2>⚡ Technical Skills</h2>
+      <div className="window-header-section">
+        <div className="window-header-icon">
+          <Zap size={24} strokeWidth={2} />
+        </div>
+        <p>Technical Skills</p>
+      </div>
+      
       <div className="app-content">
-        {Object.entries(skills).map(([category, items]) => (
-          <div key={category} className="skill-category">
-            <h3>{category}</h3>
-            <div className="skill-tags">
-              {items.map(skill => (
-                <span key={skill} className="skill-tag">{skill}</span>
-              ))}
+        {Object.entries(skillsData).map(([category, items]) => {
+          const IconComponent = getCategoryIcon(category);
+          return (
+            <div key={category} className="skill-category-card">
+              <div className="skill-category-header">
+                <div className="skill-category-icon">
+                  <IconComponent size={16} strokeWidth={2} />
+                </div>
+                <h3>{category}</h3>
+              </div>
+              <div className="skill-tags">
+                {items.map(skill => (
+                  <span key={skill} className="skill-tag">{skill}</span>
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );

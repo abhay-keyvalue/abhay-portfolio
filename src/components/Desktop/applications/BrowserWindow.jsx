@@ -1,9 +1,11 @@
 import { useState } from 'react';
+import { Globe, ArrowLeft, RotateCw, Lock, ArrowRight } from 'lucide-react';
+import { browserConfig } from '../../../constants/portfolioData';
 import './ApplicationWindow.css';
 
 export default function BrowserWindow() {
-  const [url, setUrl] = useState('https://www.google.com/webhp?igu=1');
-  const [inputUrl, setInputUrl] = useState('https://www.google.com');
+  const [url, setUrl] = useState(browserConfig.defaultUrl);
+  const [inputUrl, setInputUrl] = useState(browserConfig.defaultInputUrl);
 
   const handleNavigate = (e) => {
     e.preventDefault();
@@ -13,7 +15,7 @@ export default function BrowserWindow() {
       if (newUrl.includes('.')) {
         newUrl = 'https://' + newUrl;
       } else {
-        newUrl = `https://www.google.com/search?q=${encodeURIComponent(newUrl)}&igu=1`;
+        newUrl = `${browserConfig.searchEngine}?q=${encodeURIComponent(newUrl)}&igu=1`;
       }
     } else {
       newUrl = newUrl + (newUrl.includes('?') ? '&' : '?') + 'igu=1';
@@ -23,8 +25,8 @@ export default function BrowserWindow() {
   };
 
   const handleBack = () => {
-    setUrl('https://www.google.com/webhp?igu=1');
-    setInputUrl('https://www.google.com');
+    setUrl(browserConfig.defaultUrl);
+    setInputUrl(browserConfig.defaultInputUrl);
   };
 
   const handleRefresh = () => {
@@ -35,16 +37,18 @@ export default function BrowserWindow() {
     <div className="application-window browser-window">
       <div className="browser-toolbar">
         <div className="browser-nav-buttons">
-          <button onClick={handleBack} className="browser-nav-btn" title="Back">
-            ←
+          <button onClick={handleBack} className="browser-nav-btn" title="Home">
+            <ArrowLeft size={16} strokeWidth={2} />
           </button>
           <button onClick={handleRefresh} className="browser-nav-btn" title="Refresh">
-            ↻
+            <RotateCw size={16} strokeWidth={2} />
           </button>
         </div>
         
         <form onSubmit={handleNavigate} className="browser-address-bar">
-          <span className="browser-lock">🔒</span>
+          <div className="browser-lock">
+            <Lock size={14} strokeWidth={2} />
+          </div>
           <input
             type="text"
             value={inputUrl}
@@ -52,7 +56,9 @@ export default function BrowserWindow() {
             placeholder="Search Google or enter address"
             className="browser-url-input"
           />
-          <button type="submit" className="browser-go-btn">Go</button>
+          <button type="submit" className="browser-go-btn">
+            <ArrowRight size={14} strokeWidth={2} />
+          </button>
         </form>
       </div>
       
@@ -66,7 +72,7 @@ export default function BrowserWindow() {
         />
         <div className="browser-note">
           <p style={{ fontSize: '11px', color: '#86868b', padding: '8px 12px', margin: 0, textAlign: 'center', background: 'rgba(255, 255, 255, 0.95)' }}>
-            Note: Some sites may block iframe embedding. If content doesn't load, try a different URL.
+            {browserConfig.noteText}
           </p>
         </div>
       </div>

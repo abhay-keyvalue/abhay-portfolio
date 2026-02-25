@@ -1,34 +1,13 @@
 import { useState } from 'react';
+import { Music, Music2, Music3, Music4, SkipBack, SkipForward, ChevronDown, ChevronUp } from 'lucide-react';
+import { musicPlaylist } from '../../../constants/portfolioData';
 import './ApplicationWindow.css';
 
 export default function MusicPlayerWindow() {
   const [currentTrack, setCurrentTrack] = useState(0);
   const [isExpanded, setIsExpanded] = useState(true);
 
-  // To add your own music:
-  // 1. Go to any SoundCloud track or playlist
-  // 2. Copy the full URL (e.g., https://soundcloud.com/artist/track-name)
-  // 3. Add it to the playlist array below
-  const playlist = [
-    {
-      title: 'NEELAKASHAM',
-      artist: 'Remix',
-      soundcloudUrl: 'https://soundcloud.com/rexvijayan/neelakasham-extended?in=mycupofmusic/sets/malayalam-songs&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing',
-      cover: '🎵',
-    },
-    {
-      title: 'Ambient Coding',
-      artist: 'Focus Music',
-      soundcloudUrl: 'https://soundcloud.com/mathews_philip/ohm-shanthi-oshaana?in=jjojo28/sets/om-shanthi-oshana&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing',
-      cover: '🎶',
-    },
-    {
-      title: 'Unfinished Hope Premam BGM',
-      artist: 'Sreeraj Krishnan',
-      soundcloudUrl: 'https://soundcloud.com/sreeraj-krishnan/unfinished-hope-premam-bgm?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing',
-      cover: '🎼',
-    },
-  ];
+  const playlist = musicPlaylist;
 
   const track = playlist[currentTrack];
   
@@ -48,9 +27,21 @@ export default function MusicPlayerWindow() {
     }
   };
 
+  const getMusicIcon = (index) => {
+    const icons = [Music2, Music3, Music4];
+    return icons[index % icons.length];
+  };
+
   return (
     <div className="application-window music-player-window">
       <div className="music-player-content">
+        <div className="window-header-section music-header">
+          <div className="window-header-icon">
+            <Music size={24} strokeWidth={2} />
+          </div>
+          <p>Music Player</p>
+        </div>
+
         <div className="track-info-header">
           <h3 className="track-title">{track.title}</h3>
           <p className="track-artist">{track.artist}</p>
@@ -69,38 +60,6 @@ export default function MusicPlayerWindow() {
           />
         </div>
 
-        {isExpanded && (
-          <div className="playlist-section">
-            <div className="playlist-header">
-              <h4>Playlist</h4>
-              <button 
-                onClick={() => setIsExpanded(!isExpanded)} 
-                className="playlist-toggle"
-              >
-                {isExpanded ? '▼' : '▲'}
-              </button>
-            </div>
-            <div className="playlist-tracks">
-              {playlist.map((item, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentTrack(index)}
-                  className={`playlist-item ${index === currentTrack ? 'active' : ''}`}
-                >
-                  <span className="playlist-icon">{item.cover}</span>
-                  <div className="playlist-text">
-                    <span className="playlist-title">{item.title}</span>
-                    <span className="playlist-artist">{item.artist}</span>
-                  </div>
-                  {index === currentTrack && (
-                    <span className="playing-indicator">♫</span>
-                  )}
-                </button>
-              ))}
-            </div>
-          </div>
-        )}
-
         <div className="player-nav-controls">
           <button
             onClick={handlePrevious}
@@ -108,7 +67,8 @@ export default function MusicPlayerWindow() {
             className="nav-control-btn"
             title="Previous Track"
           >
-            ⏮ Previous
+            <SkipBack size={16} strokeWidth={2} />
+            <span>Previous</span>
           </button>
           <button
             onClick={handleNext}
@@ -116,12 +76,56 @@ export default function MusicPlayerWindow() {
             className="nav-control-btn"
             title="Next Track"
           >
-            Next ⏭
+            <span>Next</span>
+            <SkipForward size={16} strokeWidth={2} />
           </button>
         </div>
 
+        <div className="playlist-section">
+          <div className="playlist-header">
+            <h4>Playlist ({playlist.length} tracks)</h4>
+            <button 
+              onClick={() => setIsExpanded(!isExpanded)} 
+              className="playlist-toggle"
+              title={isExpanded ? 'Collapse' : 'Expand'}
+            >
+              {isExpanded ? <ChevronUp size={16} strokeWidth={2} /> : <ChevronDown size={16} strokeWidth={2} />}
+            </button>
+          </div>
+          {isExpanded && (
+            <div className="playlist-tracks">
+              {playlist.map((item, index) => {
+                const TrackIcon = getMusicIcon(index);
+                return (
+                  <button
+                    key={item.id}
+                    onClick={() => setCurrentTrack(index)}
+                    className={`playlist-item ${index === currentTrack ? 'active' : ''}`}
+                  >
+                    <div className="playlist-icon">
+                      <TrackIcon size={20} strokeWidth={2} />
+                    </div>
+                    <div className="playlist-text">
+                      <span className="playlist-title">{item.title}</span>
+                      <span className="playlist-artist">{item.artist}</span>
+                    </div>
+                    {index === currentTrack && (
+                      <div className="playing-indicator">
+                        <Music size={16} strokeWidth={2} />
+                      </div>
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+          )}
+        </div>
+
         <div className="music-note">
-          <p>🎵 Powered by SoundCloud</p>
+          <div className="music-note-header">
+            <Music size={14} strokeWidth={2} />
+            <span>Powered by SoundCloud</span>
+          </div>
           <p>Use the embedded player controls to play, pause, and adjust volume</p>
         </div>
         

@@ -3,6 +3,37 @@
   font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
 }
 
+.window-header-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.window-header-section p {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1d1d1f;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+.window-header-icon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.15), rgba(118, 75, 162, 0.15));
+  border-radius: 12px;
+  color: #667eea;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.2);
+  font-size: 24px;
+  font-weight: 700;
+  color: #1d1d1f;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+
+
 .application-window h2 {
   margin: 0 0 24px 0;
   font-size: 28px;
@@ -172,6 +203,50 @@
   margin-bottom: 28px;
 }
 
+.skill-category-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  border-radius: 14px;
+  margin-bottom: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.skill-category-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  border-color: rgba(102, 126, 234, 0.2);
+}
+
+.skill-category-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.skill-category-icon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 8px;
+  color: white;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.skill-category-header h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: #1d1d1f;
+  letter-spacing: -0.01em;
+}
+
 .skill-tags {
   display: flex;
   flex-wrap: wrap;
@@ -224,6 +299,19 @@
   font-size: 28px;
 }
 
+.contact-icon-box {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 10px;
+  color: white;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  flex-shrink: 0;
+}
+
 .contact-form {
   display: flex;
   flex-direction: column;
@@ -251,7 +339,7 @@
 }
 
 .contact-form button {
-  padding: 14px;
+  padding: 14px 20px;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
   border: none;
@@ -262,6 +350,10 @@
   transition: all 0.2s ease;
   letter-spacing: -0.01em;
   box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
 .contact-form button:hover {
@@ -293,6 +385,95 @@ a.contact-link:hover {
   text-decoration: underline;
 }
 
+.profile-header-card {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.12), rgba(118, 75, 162, 0.12));
+  backdrop-filter: blur(20px);
+  padding: 32px 24px;
+  border-radius: 16px;
+  margin-bottom: 20px;
+  text-align: center;
+  border: 1px solid rgba(102, 126, 234, 0.2);
+  box-shadow: 
+    0 4px 16px rgba(102, 126, 234, 0.1),
+    0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-header-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.3) 0%,
+    transparent 50%
+  );
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.profile-avatar {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 16px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  box-shadow: 
+    0 8px 24px rgba(102, 126, 234, 0.3),
+    0 0 0 4px rgba(255, 255, 255, 0.5);
+  position: relative;
+  z-index: 1;
+}
+
+.profile-header-card h3 {
+  margin: 0 0 12px 0;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+  z-index: 1;
+}
+
+.profile-title-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(102, 126, 234, 0.15);
+  padding: 8px 16px;
+  border-radius: 20px;
+  color: #667eea;
+  font-size: 15px;
+  font-weight: 600;
+  margin: 8px 0;
+  border: 1px solid rgba(102, 126, 234, 0.2);
+  position: relative;
+  z-index: 1;
+}
+
+.profile-location-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #86868b;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 8px;
+  position: relative;
+  z-index: 1;
+}
+
 .profile-header {
   background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
   padding: 20px;
@@ -319,6 +500,125 @@ a.contact-link:hover {
   color: #86868b;
   font-size: 14px;
   margin: 4px 0;
+}
+
+.info-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  border-radius: 14px;
+  margin-bottom: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.info-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  border-color: rgba(102, 126, 234, 0.2);
+}
+
+.info-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.info-card-icon {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 10px;
+  color: white;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.info-card-header h4 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #1d1d1f;
+  letter-spacing: -0.01em;
+}
+
+.info-card-content {
+  color: #1d1d1f;
+  line-height: 1.7;
+}
+
+.info-card-content p {
+  margin: 12px 0;
+  font-size: 14px;
+  color: #3d3d3d;
+}
+
+.info-card-content p:first-child {
+  margin-top: 0;
+}
+
+.info-card-content p:last-child {
+  margin-bottom: 0;
+}
+
+.education-degree {
+  font-size: 15px !important;
+  color: #1d1d1f !important;
+  font-weight: 600;
+  margin-bottom: 8px !important;
+}
+
+.education-college {
+  color: #667eea !important;
+  font-weight: 500;
+  margin-bottom: 6px !important;
+}
+
+.education-details {
+  color: #86868b !important;
+  font-size: 13px !important;
+}
+
+.achievements-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.achievements-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: rgba(102, 126, 234, 0.05);
+  border-radius: 10px;
+  border: 1px solid rgba(102, 126, 234, 0.1);
+  transition: all 0.2s ease;
+  color: #667eea;
+}
+
+.achievements-list li:hover {
+  background: rgba(102, 126, 234, 0.1);
+  transform: translateX(4px);
+  border-color: rgba(102, 126, 234, 0.2);
+}
+
+.achievements-list li svg {
+  flex-shrink: 0;
+  color: #667eea;
+}
+
+.achievements-list li span {
+  color: #3d3d3d;
+  font-size: 14px;
+  line-height: 1.5;
 }
 
 .profile-section {
@@ -366,11 +666,34 @@ a.contact-link:hover {
   margin: 4px 0;
 }
 
+.company-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #667eea;
+  font-size: 15px;
+  font-weight: 600;
+  margin: 8px 0 0 0;
+}
+
 .duration {
   color: #86868b;
   font-size: 13px;
   font-weight: 500;
   white-space: nowrap;
+}
+
+.duration-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #86868b;
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+  background: rgba(0, 0, 0, 0.04);
+  padding: 6px 12px;
+  border-radius: 8px;
 }
 
 .experience-content ul {
@@ -410,22 +733,22 @@ a.contact-link:hover {
 }
 
 .browser-nav-btn {
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   border: none;
   background: rgba(0, 0, 0, 0.05);
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px;
   color: #1d1d1f;
   transition: all 0.2s ease;
 }
 
 .browser-nav-btn:hover {
   background: rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
 }
 
 .browser-nav-btn:active {
@@ -444,8 +767,11 @@ a.contact-link:hover {
 }
 
 .browser-lock {
-  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: #86868b;
+  flex-shrink: 0;
 }
 
 .browser-url-input {
@@ -463,19 +789,21 @@ a.contact-link:hover {
 }
 
 .browser-go-btn {
-  padding: 4px 12px;
+  padding: 6px 8px;
   background: rgba(102, 126, 234, 0.1);
   border: none;
   border-radius: 6px;
   color: #667eea;
-  font-size: 12px;
-  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .browser-go-btn:hover {
   background: rgba(102, 126, 234, 0.2);
+  transform: scale(1.05);
 }
 
 .browser-content {
@@ -511,6 +839,11 @@ a.contact-link:hover {
   display: flex;
   flex-direction: column;
   gap: 16px;
+}
+
+.music-header {
+  margin-bottom: 8px;
+  padding-bottom: 16px;
 }
 
 .track-info-header {
@@ -554,8 +887,8 @@ a.contact-link:hover {
 .nav-control-btn {
   flex: 1;
   padding: 12px 16px;
-  background: rgba(102, 126, 234, 0.1);
-  border: none;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.12), rgba(118, 75, 162, 0.12));
+  border: 1px solid rgba(102, 126, 234, 0.2);
   border-radius: 10px;
   color: #667eea;
   font-size: 13px;
@@ -565,7 +898,7 @@ a.contact-link:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
+  gap: 8px;
 }
 
 .nav-control-btn:hover:not(:disabled) {
@@ -610,16 +943,19 @@ a.contact-link:hover {
 .playlist-toggle {
   background: rgba(102, 126, 234, 0.1);
   border: none;
-  padding: 4px 8px;
+  padding: 6px;
   border-radius: 6px;
   cursor: pointer;
   color: #667eea;
-  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: all 0.2s ease;
 }
 
 .playlist-toggle:hover {
   background: rgba(102, 126, 234, 0.2);
+  transform: scale(1.1);
 }
 
 .playlist-section {
@@ -664,18 +1000,22 @@ a.contact-link:hover {
 }
 
 .playlist-icon {
-  font-size: 24px;
   width: 40px;
   height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(102, 126, 234, 0.1);
-  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.15), rgba(118, 75, 162, 0.15));
+  border-radius: 10px;
+  color: #667eea;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
 }
 
 .playlist-item.active .playlist-icon {
-  background: rgba(102, 126, 234, 0.2);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
 }
 
 .playlist-text {
@@ -697,9 +1037,22 @@ a.contact-link:hover {
 }
 
 .playing-indicator {
-  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: #667eea;
-  animation: bounce 1s ease-in-out infinite;
+  animation: musicPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes musicPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.8;
+  }
 }
 
 @keyframes bounce {
