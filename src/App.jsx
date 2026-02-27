@@ -1,4 +1,4 @@
-import { lazy, Suspense, useState } from 'react';
+import { useState } from 'react';
 import LoadingScreen from './components/LoadingScreen';
 import Desktop from './components/Desktop/Desktop';
 import './styles.css';
