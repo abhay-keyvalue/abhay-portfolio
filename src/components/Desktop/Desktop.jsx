@@ -1,5 +1,4 @@
 import { useState, useCallback, useEffect } from 'react';
-import { User, Briefcase, Zap, Mail, Globe, Music, Rocket } from 'lucide-react';
 import MenuBar from './MenuBar';
 import DesktopShortcut from './DesktopShortcut';
 import Taskbar from './Taskbar';
@@ -10,48 +9,79 @@ import SkillsWindow from './applications/SkillsWindow';
 import ContactWindow from './applications/ContactWindow';
 import BrowserWindow from './applications/BrowserWindow';
 import MusicPlayerWindow from './applications/MusicPlayerWindow';
-import './Desktop.css';
+
+// macOS-style icon components
+const MacIcon = ({ emoji, gradient }) => (
+  <div style={{
+    width: '100%',
+    height: '100%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontSize: '42px',
+    background: gradient,
+    borderRadius: '20%',
+    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.3)',
+    position: 'relative',
+  }}>
+    <div style={{
+      position: 'absolute',
+      inset: 0,
+      background: 'linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 50%, rgba(0,0,0,0.1) 100%)',
+      borderRadius: '20%',
+    }} />
+    <span style={{ position: 'relative', zIndex: 1, filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.2))' }}>{emoji}</span>
+  </div>
+);
+
+const ProfileIcon = () => <MacIcon emoji="👤" gradient="linear-gradient(135deg, #667eea 0%, #764ba2 100%)" />;
+const ProjectsIcon = () => <MacIcon emoji="💼" gradient="linear-gradient(135deg, #f093fb 0%, #f5576c 100%)" />;
+const SkillsIcon = () => <MacIcon emoji="⚡" gradient="linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)" />;
+const ContactIcon = () => <MacIcon emoji="✉️" gradient="linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)" />;
+const SafariIcon = () => <MacIcon emoji="🧭" gradient="linear-gradient(135deg, #667eea 0%, #667eea 100%)" />;
+const MusicIcon = () => <MacIcon emoji="🎵" gradient="linear-gradient(135deg, #fa709a 0%, #fee140 100%)" />;
+const RocketIcon = () => <MacIcon emoji="🚀" gradient="linear-gradient(135deg, #30cfd0 0%, #330867 100%)" />;
 
 const APPLICATIONS = {
   profile: {
     key: 'profile',
     name: 'About Me',
-    icon: User,
+    icon: ProfileIcon,
     component: ProfileWindow,
     width: 60,
   },
   projects: {
     key: 'projects',
     name: 'My Projects',
-    icon: Briefcase,
+    icon: ProjectsIcon,
     component: ProjectsWindow,
     width: 55,
   },
   skills: {
     key: 'skills',
     name: 'Skills',
-    icon: Zap,
+    icon: SkillsIcon,
     component: SkillsWindow,
     width: 50,
   },
   contact: {
     key: 'contact',
     name: 'Contact',
-    icon: Mail,
+    icon: ContactIcon,
     component: ContactWindow,
     width: 50,
   },
   safari: {
     key: 'safari',
     name: 'Safari',
-    icon: Globe,
+    icon: SafariIcon,
     component: BrowserWindow,
     width: 70,
   },
   music: {
     key: 'music',
     name: 'Music',
-    icon: Music,
+    icon: MusicIcon,
     component: MusicPlayerWindow,
     width: 45,
   },
@@ -139,10 +169,10 @@ export default function Desktop({ onExplore }) {
   }, []);
 
   return (
-    <div className="desktop">
+    <div className="w-screen h-screen bg-gradient-to-br from-[#667eea] via-[#764ba2] to-[#f093fb] relative overflow-hidden font-[-apple-system,BlinkMacSystemFont,'SF_Pro_Display','Segoe_UI',sans-serif] before:content-[''] before:absolute before:inset-0 before:[background-image:radial-gradient(circle_at_30%_40%,rgba(255,255,255,0.1)_0%,transparent_60%),radial-gradient(circle_at_70%_70%,rgba(0,0,0,0.05)_0%,transparent_50%)] before:pointer-events-none">
       <MenuBar onShutdown={handleShutdown} />
       
-      <div className="desktop-shortcuts">
+      <div className="absolute top-[60px] right-5 flex flex-col gap-2.5 z-[1]">
         {shortcuts.map((shortcut) => (
           <DesktopShortcut
             key={shortcut.key}
@@ -153,7 +183,7 @@ export default function Desktop({ onExplore }) {
         ))}
         
         <DesktopShortcut
-          icon={Rocket}
+          icon={RocketIcon}
           name="Explore 3D"
           onOpen={onExplore}
           highlight
