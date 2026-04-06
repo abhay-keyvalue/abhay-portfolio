@@ -9,6 +9,7 @@ import SkillsWindow from './applications/SkillsWindow';
 import ContactWindow from './applications/ContactWindow';
 import BrowserWindow from './applications/BrowserWindow';
 import MusicPlayerWindow from './applications/MusicPlayerWindow';
+import BreakoutWindow from './applications/BreakoutWindow';
 
 // macOS-style icon components
 const MacIcon = ({ emoji, gradient }) => (
@@ -40,6 +41,7 @@ const SkillsIcon = () => <MacIcon emoji="⚡" gradient="linear-gradient(135deg, 
 const ContactIcon = () => <MacIcon emoji="✉️" gradient="linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)" />;
 const SafariIcon = () => <MacIcon emoji="🧭" gradient="linear-gradient(135deg, #667eea 0%, #667eea 100%)" />;
 const MusicIcon = () => <MacIcon emoji="🎵" gradient="linear-gradient(135deg, #fa709a 0%, #fee140 100%)" />;
+const BreakoutIcon = () => <MacIcon emoji="🕹️" gradient="linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%)" />;
 const RocketIcon = () => <MacIcon emoji="🚀" gradient="linear-gradient(135deg, #30cfd0 0%, #330867 100%)" />;
 
 const APPLICATIONS = {
@@ -84,6 +86,13 @@ const APPLICATIONS = {
     icon: MusicIcon,
     component: MusicPlayerWindow,
     width: 45,
+  },
+  breakout: {
+    key: 'breakout',
+    name: 'Breakout',
+    icon: BreakoutIcon,
+    component: BreakoutWindow,
+    width: 70,
   },
 };
 
@@ -172,7 +181,7 @@ export default function Desktop({ onExplore }) {
     <div className="w-screen h-screen bg-gradient-to-br from-[#667eea] via-[#764ba2] to-[#f093fb] relative overflow-hidden font-[-apple-system,BlinkMacSystemFont,'SF_Pro_Display','Segoe_UI',sans-serif] before:content-[''] before:absolute before:inset-0 before:[background-image:radial-gradient(circle_at_30%_40%,rgba(255,255,255,0.1)_0%,transparent_60%),radial-gradient(circle_at_70%_70%,rgba(0,0,0,0.05)_0%,transparent_50%)] before:pointer-events-none">
       <MenuBar onShutdown={handleShutdown} />
       
-      <div className="absolute top-[60px] right-5 flex flex-col gap-2.5 z-[1]">
+      <div className="absolute top-[50px] left-5 h-[calc(100vh-60px)] flex flex-col flex-wrap content-start items-end gap-2.5 z-[1]">
         {shortcuts.map((shortcut) => (
           <DesktopShortcut
             key={shortcut.key}
