@@ -27,6 +27,7 @@ const FinderIcon = () => <TaskbarIcon emoji="📁" gradient="linear-gradient(135
 const SafariIcon = () => <TaskbarIcon emoji="🧭" gradient="linear-gradient(135deg, #667eea 0%, #667eea 100%)" />;
 const MusicIcon = () => <TaskbarIcon emoji="🎵" gradient="linear-gradient(135deg, #fa709a 0%, #fee140 100%)" />;
 const BreakoutIcon = () => <TaskbarIcon emoji="🕹️" gradient="linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%)" />;
+const RacingIcon = () => <TaskbarIcon emoji="🏎️" gradient="linear-gradient(135deg, #f43f5e 0%, #fb7185 100%)" />;
 const ProfileIcon = () => <TaskbarIcon emoji="👤" gradient="linear-gradient(135deg, #667eea 0%, #764ba2 100%)" />;
 const ProjectsIcon = () => <TaskbarIcon emoji="💼" gradient="linear-gradient(135deg, #f093fb 0%, #f5576c 100%)" />;
 const SkillsIcon = () => <TaskbarIcon emoji="⚡" gradient="linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)" />;
@@ -39,6 +40,7 @@ export default function Taskbar({ windows, toggleMinimize, onExplore, applicatio
     { key: 'safari', icon: SafariIcon, name: 'Safari' },
     { key: 'music', icon: MusicIcon, name: 'Music' },
     { key: 'breakout', icon: BreakoutIcon, name: 'Breakout' },
+    { key: 'racing', icon: RacingIcon, name: 'Racing' },
     { key: 'divider1', isDivider: true },
     { key: 'profile', icon: ProfileIcon, name: 'About Me' },
     { key: 'projects', icon: ProjectsIcon, name: 'Experience' },
