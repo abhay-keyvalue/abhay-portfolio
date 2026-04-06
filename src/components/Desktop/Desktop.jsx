@@ -43,7 +43,7 @@ const ContactIcon = () => <MacIcon emoji="✉️" gradient="linear-gradient(135d
 const SafariIcon = () => <MacIcon emoji="🧭" gradient="linear-gradient(135deg, #667eea 0%, #667eea 100%)" />;
 const MusicIcon = () => <MacIcon emoji="🎵" gradient="linear-gradient(135deg, #fa709a 0%, #fee140 100%)" />;
 const BreakoutIcon = () => <MacIcon emoji="🕹️" gradient="linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%)" />;
-const RacingIcon = () => <MacIcon emoji="🏎️" gradient="linear-gradient(135deg, #f43f5e 0%, #fb7185 100%)" />;
+const RacingIcon = () => <MacIcon emoji="🏎️" gradient="linear-gradient(135deg, #f43f5e 0%, #ffffff 100%)" />;
 const RocketIcon = () => <MacIcon emoji="🚀" gradient="linear-gradient(135deg, #30cfd0 0%, #330867 100%)" />;
 
 const APPLICATIONS = {
